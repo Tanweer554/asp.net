@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+
+//Read only region start
+public class UserMainCode
+{
+    public string StringStatistics(string input1)
+    {
+        //Read only region end
+        //Write code here
+        // throw new NotImplementedException("Method  StringStatistics(string input1) not Implemented.");
+        int num_count = 0, sum_num = 0;
+        int alp_count = 0, j = 0;
+        string z = "ZERO";
+        char[] carrnew = new char[20];
+        char[] carr = input1.ToCharArray();
+        Console.WriteLine(carr);
+        for (int i = 0; i < carr.Length; i++)
+        {
+            if (char.IsDigit(carr[i]))
+            {
+                num_count++;
+                int a = (int)Char.GetNumericValue(carr[i]);
+                sum_num += a;
+            }
+            else if (char.IsLetter(carr[i]))
+            {
+                alp_count++;
+                carrnew[j++] = carr[i];
+
+            }
+
+        }
+        Console.WriteLine("num_count:{0}", num_count);
+        Console.WriteLine("alp_count:{0}", alp_count);
+        Console.WriteLine("sum_num:{0}", sum_num);
+
+        if (num_count == 0)
+        {
+            return z;
+        }
+        if (alp_count == 0)
+        {
+            return z;
+        }
+        if (sum_num == 0)
+        {
+            return z;
+        }
+        string alpha = new string(carrnew);
+        Console.WriteLine("alpha:{0}", alpha);
+        string result = alp_count.ToString() + alpha + sum_num.ToString();
+        Console.WriteLine("result:{0}", result);
+        return result;
+
+    }
+}
